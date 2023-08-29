@@ -1,0 +1,57 @@
+﻿@model IEnumerable<MVC_Referential.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EDesignation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ESalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department.DName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EDesignation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ESalary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department.DName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EId })
+        </td>
+    </tr>
+}
+
+</table>
